@@ -318,7 +318,17 @@ void UpdateSequenceBars() {
                         seq->selectedSamps.clear();
                         isClickUsed = true;
                     }
-                    DrawText(std::to_string(seq->selectedSamps.size()).c_str(), 700,300, 50, BLACK);
+                    DrawText((std::to_string(seq->copiedSamps.size()) + " copied samples").c_str(), 700,300, 50, BLACK);
+                    if (IsKeyDown(KEY_LEFT_CONTROL)) {
+                        if (IsKeyPressed(KEY_C)) {
+                            seq->copiedSamps = seq->selectedSamps;
+                        }
+                        else if (IsKeyPressed(KEY_V)) {
+                            for (SequenceSample *samp : seq->copiedSamps) {
+                                seq->AddSamples(samp->sample->properties, samp->startTime - 1);
+                            }
+                        }
+                    }
                 }
                 else if (interactionState == INTERACT_DELETENOTE) {
                     for (DrawnSample samp : seq->lastDrawnSamples) {

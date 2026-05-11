@@ -58,7 +58,8 @@ class Sequence {
         std::vector<SequenceSample*> GetAllSamples(); // orders samples 
         std::vector<std::tuple<Measure, double>> GetMeasures(); //float is measure start time
         std::vector<DrawnSample> lastDrawnSamples;
-        std::vector<SequenceSample *>selectedSamps;
+        std::vector<SequenceSample *> selectedSamps;
+        std::vector<SequenceSample *> copiedSamps;
         SequenceSample *ghostSamp = nullptr;
         SequenceSample *highlightedSamp = nullptr;
         std::tuple<Measure, double> *GetMeasureAtTime(double time);

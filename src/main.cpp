@@ -40,9 +40,9 @@ int main(int argc, char ** argv)
     InitWindow(800, 500, "Woah cool DAW buddy");
 
     //loader.LoadPlugin("kickdrum1");
-    loader.LoadPlugin("goop");
+    loader.LoadPlugin("goop", true);
     //loader.LoadPlugin("ambient1");
-    loader.LoadPlugin("sampler");
+    loader.LoadPlugin("sampler", true);
 
     if (loader.plugins.size() > 0) {
         for (LoadedPlugin plugin : loader.plugins) {

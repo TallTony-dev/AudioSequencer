@@ -260,7 +260,7 @@ void Sequence::Update() {
             
         }
     }
-    
+
 }
 
 void Sequence::DrawWindow() {
@@ -389,6 +389,7 @@ void Sequence::RemoveSample(SequenceSample *samp) {
     std::erase(samplesToAdd, samp);
     std::erase(samplesAdded, samp);
     std::erase(selectedSamps, samp);
+    std::erase(copiedSamps, samp);
     if (highlightedSamp == samp) {
         highlightedSamp = nullptr;
     }
