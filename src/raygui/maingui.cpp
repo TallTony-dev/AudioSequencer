@@ -271,6 +271,11 @@ void UpdateSequenceBars() {
             }
             if (Intersects({SIDEBARTOTALWIDTH, seqYPos, (float)GetScreenWidth() - SIDEBARTOTALWIDTH, seq->seqHeight}, mousePos)) {
                 //manage click on actual sequence bar with draw tool here
+                for (DrawnSample samp : seq->lastDrawnSamples) {
+                    if (Intersects(samp.rect, mousePos)) {
+                        seq->highlightedSamp = samp.samp;
+                    }
+                }
                 if (interactionState == INTERACT_ADDNOTE) {
                     seq->ghostSamp = new SequenceSample();
                     seq->ghostSamp->sample = new Sample();
@@ -308,9 +313,6 @@ void UpdateSequenceBars() {
                                     wasOneSelected = true;
                                 }
                                 isClickUsed = true;
-                            }
-                            else {
-                                seq->highlightedSamp = samp.samp;
                             }
                         }
                     }
