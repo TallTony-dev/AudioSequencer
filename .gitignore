@@ -3,5 +3,5 @@ bin/out.wav
 bin/build_osx
 *.dylib
 *.dll
-bin/build_windows.exe
+*.exe
 /.vs
